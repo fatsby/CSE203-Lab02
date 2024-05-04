@@ -18,17 +18,15 @@ public class Bank {
     public ArrayList<BankAccount> getAccounts() {
         return accounts;
     }
-    public  List<BankAccount> createAccount() {
-        List<BankAccount> createdAccounts = new ArrayList<>();
+    public  void createAccount() {
         System.out.print("How many accounts do you wish to create?");
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
             BankAccount account = new BankAccount();
             account.createAccount();
             accounts.add(account);
-            createdAccounts.add(account);
+
         }
-        return createdAccounts;
     }
     public void printAccounts(){
         for (int i = 0; i < accounts.size(); i++) {
@@ -50,5 +48,32 @@ public class Bank {
             }
         }
         return null;
+    }
+    public void depositAccount() {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
+        System.out.print("Enter amount to deposit: ");
+        double amount = sc.nextDouble();
+        BankAccount account = getAccountByNumber(accountNumber);
+        account.deposit(amount);
+    }
+    public void withdrawAccount() {
+        System.out.print("Enter account number: ");
+        int accountNumber = sc.nextInt();
+        System.out.print("Enter amount to withdraw: ");
+        double amount = sc.nextDouble();
+        BankAccount account = getAccountByNumber(accountNumber);
+        account.withdraw(amount);
+    }
+    public void transferMoney() {
+        System.out.print("Enter your account number: ");
+        int accountNumber = sc.nextInt();
+        System.out.print("Enter amount to transfer: ");
+        double amount = sc.nextDouble();
+        BankAccount account = getAccountByNumber(accountNumber);
+        System.out.print("Enter receiver account number: ");
+        int receiverAccountNumber = sc.nextInt();
+        BankAccount reiceiver = getAccountByNumber(receiverAccountNumber);
+        account.transfer(reiceiver, amount);
     }
 }

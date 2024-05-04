@@ -20,8 +20,9 @@ public class BankAccount {
         System.out.println("Creating new account.");
         System.out.println("Account number: ");
         this.mAccNum = sc.nextInt();
+        sc.nextLine();
         System.out.println("Name: ");
-        this.mName = sc.next();
+        this.mName = sc.nextLine();
         System.out.println("Balance: ");
         this.mBalance = sc.nextDouble();
     }
